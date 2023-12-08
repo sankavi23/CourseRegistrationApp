@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.127-alpha">
+  <PropertyGroup>
+    <StartupCommand>npm start</StartupCommand>
+    <JavaScriptTestFramework>Jasmine</JavaScriptTestFramework>
+    <!-- Allows the build (or compile) script located on package.json to run on Build -->
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <!-- Folder where production build objects will be placed -->
+    <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist\CourseRegistration\</PublishAssetsDirectory>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\app\components\adminLayout\" />
+    <Folder Include="src\app\components\instructorLayout\" />
+    <Folder Include="src\app\components\studentLayout\" />
+    <Folder Include="src\app\adminPage\" />
+    <Folder Include="src\app\instructorPage\" />
+    <Folder Include="src\app\models\" />
+    <Folder Include="src\app\studentPage\" />
+    <Folder Include="src\assets\images\" />
+  </ItemGroup>
+</Project>

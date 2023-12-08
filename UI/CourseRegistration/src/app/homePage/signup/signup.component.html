@@ -1,0 +1,29 @@
+<div class="signup-container">
+
+    <mat-toolbar class="login-toolbar" color="primary">REGISTER</mat-toolbar>
+    <mat-card>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="First Name" [(ngModel)]="model.FirstName" name="FirstName" required>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="LastName" [(ngModel)]="model.LastName" name="LastName" type="LastName" required>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="EmailId" [(ngModel)]="model.EmailId" name="EmailId" type="EmailId" required>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Phone Number" [(ngModel)]="model.PhoneNo" name="PhoneNo" type="PhoneNo" required>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password" [(ngModel)]="model.password" name="password" type="password" required>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="submitForm()">Register</button>
+
+    </mat-card>
+
+</div>

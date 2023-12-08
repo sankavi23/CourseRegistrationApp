@@ -1,0 +1,1 @@
+D:\Course Registration System\UI\CourseRegistration\obj\Debug\CourseRegistration.esproj.CoreCompileInputs.cache
