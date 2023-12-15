@@ -1,4 +1,4 @@
-<!-- home.component.html -->
+<!--
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container">
     <mat-toolbar color="primary">
@@ -7,7 +7,7 @@
         <div class=" navbar-left">
           <span>ACCA</span>
         </div>
-        
+
         <div class="navbar-right">
           <span class="example-spacer"></span>
           <button mat-button routerLink="/">Home</button>
@@ -18,17 +18,43 @@
       </mat-toolbar-row>
     </mat-toolbar>
   </div>
-</nav>
-
-  <div class="home-body">
-    
-    <h2>Welcome!</h2>
-
+</nav>-->
+<!-- landing-page.component.html -->
+<header>
+  <div class="navbar">
+    <div class="logo-brand-container">
+      <div class="logo">
+        <!-- Replace 'your-logo.png' with the path to your logo -->
+        <img src="../../../assets/images/HomePage.png" alt="Logo">
+      </div>
+      <div class="brand">
+      
+        <span>IIT</span>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <a routerLink="/">Home</a>
+      <a routerLink="/login">Login</a>
+      <a routerLink="/signup">Signup</a>
+    </div>
   </div>
+</header>
 
-
-  <div class="footer">
-    <p>&copy; 2023 ACCA</p>
+<section class="main-section">
+  <div class="background-image">
+   
+    <img src="../../../assets/images/HomePage.png" alt="Background Image">
+    <div class="text-overlay">
+      <h1>Welcome to Your Brand</h1>
+      <p>Your tagline or a brief description goes here.</p>
+    </div>
   </div>
-    
-  
+</section>
+
+<footer>
+  <p>&copy; 2023 Your Brand. All rights reserved.</p>
+</footer>
+
+
+
+

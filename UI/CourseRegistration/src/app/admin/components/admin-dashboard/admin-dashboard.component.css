@@ -1,0 +1,91 @@
+/* navbar.component.css */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: mediumblue;
+  padding: 10px;
+  color: white;
+}
+
+.logo-brand-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 50px; 
+  height: 50px; 
+}
+
+.brand {
+  font-size: 1.5rem;
+  margin-left: 10px;
+}
+
+.logout-container button {
+  background-color: #c62828; 
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+aside {
+  width: 200px;
+  background-color: mediumblue;
+  height: 100vh;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  margin-bottom: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+}
+
+  nav a:hover {
+    color: #2196f3; 
+  }
+
+
+.logout-container button {
+  background-color: WindowText; 
+  padding: 8px 16px;
+  border: solid;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover{
+  background-color: indianred; }
+}
+
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+}
+
+.card {
+  flex: 1;
+  max-width: 300px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+mat-card {
+  min-height: 200px;
+}
+

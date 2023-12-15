@@ -1,29 +1,69 @@
-<div class="signup-container">
+<div class="outer">
+  <div class="container">
+    <div class="row">
+      <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3 ">
+        <div class="panel border big-white">
+          <div class="panel-heading">
+            <h3 class="pt-3 font-white-bold">SignUp</h3>
+          </div>
+          <div class="panel-body p-3">
+            <form [formGroup]="signUpForm">
 
-    <mat-toolbar class="login-toolbar" color="primary">REGISTER</mat-toolbar>
-    <mat-card>
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="First Name" [(ngModel)]="model.FirstName" name="FirstName" required>
-      </mat-form-field>
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="signUpForm.controls['firstName'].dirty && signUpForm.hasError('required','firstName')">
+                  <input formControlName="firstName" type="text" placeholder="First Name">
+                </div>
+              </div>
+              <small *ngIf="signUpForm.controls['firstName'].dirty && signUpForm.hasError('required','firstName')" class="text-danger">*Last Name is required!</small>
 
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="LastName" [(ngModel)]="model.LastName" name="LastName" type="LastName" required>
-      </mat-form-field>
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="signUpForm.controls['lastName'].dirty && signUpForm.hasError('required','lastName')">
+                  <input formControlName="lastName" type="text" placeholder="Last Name">
+                </div>
+              </div>
+              <small *ngIf="signUpForm.controls['emailId'].dirty && signUpForm.hasError('required','emailId')" class="text-danger">*Email is required!</small>
 
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="EmailId" [(ngModel)]="model.EmailId" name="EmailId" type="EmailId" required>
-      </mat-form-field>
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="signUpForm.controls['emailId'].dirty && signUpForm.hasError('required','emailId')">
+                  <input formControlName="emailId" type="text" placeholder="Email Address">
+                </div>
+              </div>
+              <small *ngIf="signUpForm.controls['emailId'].dirty && signUpForm.hasError('required','emailId')" class="text-danger">*Email Address is required!</small>
 
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Phone Number" [(ngModel)]="model.PhoneNo" name="PhoneNo" type="PhoneNo" required>
-      </mat-form-field>
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')">
+                  <input formControlName="password" type="password" placeholder="Password">
+                </div>
+              </div>
+              <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')" class="text-danger">*Password is required!</small>
 
-      <mat-form-field class="example-full-width">
-        <input matInput placeholder="Password" [(ngModel)]="model.password" name="password" type="password" required>
-      </mat-form-field>
 
-      <button mat-raised-button color="primary" (click)="submitForm()">Register</button>
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="signUpForm.controls['address'].dirty && signUpForm.hasError('required','address')">
+                  <input formControlName="address" type="text" placeholder="Address">
+                </div>
+              </div>
+              <small *ngIf="signUpForm.controls['address'].dirty && signUpForm.hasError('required','address')" class="text-danger">*Address is required!</small>
 
-    </mat-card>
+              <div class="form-group pt-3">
+                <div class="input-field" [class.error]="signUpForm.controls['phoneNo'].dirty && signUpForm.hasError('required','phoneNo')">
+                  <input formControlName="phoneNo" type="text" placeholder="Phone Number">
+                </div>
+              </div>
+              <small *ngIf="signUpForm.controls['phoneNo'].dirty && signUpForm.hasError('required','phoneNo')" class="text-danger">*Phone Number is required!</small>
 
+              <button type="submit" class="btn btn-primary btn-block mt-4 w-100" (click)="onSignup()">Register</button>
+
+              <div class="text-center pt-4 text-muted">Already have an account?<a id="forget" routerLink="/login">Login</a></div>
+
+
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

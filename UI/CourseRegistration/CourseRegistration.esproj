@@ -8,13 +8,25 @@
     <PublishAssetsDirectory>$(MSBuildProjectDirectory)\dist\CourseRegistration\</PublishAssetsDirectory>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\app\components\adminLayout\" />
-    <Folder Include="src\app\components\instructorLayout\" />
-    <Folder Include="src\app\components\studentLayout\" />
-    <Folder Include="src\app\adminPage\" />
-    <Folder Include="src\app\instructorPage\" />
-    <Folder Include="src\app\models\" />
-    <Folder Include="src\app\studentPage\" />
+    <Folder Include="src\app\admin\components\" />
+    <Folder Include="src\app\admin\models\" />
+    <Folder Include="src\app\admin\services\" />
+    <Folder Include="src\app\course\components\" />
+    <Folder Include="src\app\course\models\" />
+    <Folder Include="src\app\course\services\" />
+    <Folder Include="src\app\helpers\" />
+    <Folder Include="src\app\guards\" />
+    <Folder Include="src\app\services\" />
+    <Folder Include="src\app\schedule\" />
+    <Folder Include="src\app\student\components\" />
+    <Folder Include="src\app\student\services\" />
     <Folder Include="src\assets\images\" />
+    <Folder Include="src\assets\css\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptConfiguration Remove="src\NewFolder\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\NewFolder\**" />
   </ItemGroup>
 </Project>
