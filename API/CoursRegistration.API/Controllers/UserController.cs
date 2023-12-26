@@ -3,6 +3,7 @@ using CoursRegistration.API.Data;
 using CoursRegistration.API.Helpers;
 using CoursRegistration.API.Models.Domain;
 using CoursRegistration.API.Models.DTO;
+using CoursRegistration.API.Repository.implementation;
 using CoursRegistration.API.Repository.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,42 +20,6 @@ namespace CoursRegistration.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        /*private readonly ApplicationDbContext dbContext;
-
-        public UserController(ApplicationDbContext dbContext)
-        {
-            this.dbContext = dbContext;
-        }
-
-        [HttpPost("authenticate")]
-        public async Task<IActionResult> Authenticate([FromBody] User userObj)
-        {
-            if(userObj == null)
-                return BadRequest();
-
-                var user = await dbContext.Users
-                    .FirstOrDefaultAsync(x=>x.EmailId==userObj.EmailId && x.Password==userObj.Password);
-
-                if (user == null)
-                    return NotFound(new { Message = "User Not Found!" });
-
-            return Ok(new { Message = "Login Success" });
-
-            
-        }
-
-        [HttpPost("register")]
-
-        public async Task<IActionResult> RegisterUser([FromBody] User userObj)
-        {
-            if (userObj == null)
-                return BadRequest();
-
-            await dbContext.Users.AddAsync(userObj);
-            await dbContext.SaveChangesAsync();
-            return Ok(new { Message = "User Register" });
-        }*/
-
         private readonly IUserRepository userRepository;
         public UserController(IUserRepository userRepository)
         {
@@ -69,6 +34,7 @@ namespace CoursRegistration.API.Controllers
                 return BadRequest(new { Message = "Email Id already Exist!" });
 
             var pass = await userRepository.CheckPasswordStrength(request.Password);
+
             if (!string.IsNullOrEmpty(pass))
                 return BadRequest(new {Message = pass});
 
@@ -134,7 +100,7 @@ namespace CoursRegistration.API.Controllers
             var identity = new ClaimsIdentity(new Claim[]
             {
                 new Claim(ClaimTypes.Role, user.Role),
-                new Claim(ClaimTypes.Name, $"{user.FirstName} {user.LastName}")
+                new Claim(ClaimTypes.Email, user.EmailId)
             });
 
             var credentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);

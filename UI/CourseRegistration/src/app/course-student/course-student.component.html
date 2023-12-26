@@ -1,0 +1,69 @@
+<mat-toolbar color="primary">
+  <span>WISDOM INSTITUE</span>
+  <span class="example-spacer"></span>
+
+
+  <!-- For Student Dashboard -->
+  <ng-container>
+    <button mat-button routerLink="/myProfile" routerLinkActive="active">
+      <mat-icon>account_circle</mat-icon> My Profile
+    </button>
+    <button mat-button routerLink="/courseStudent" routerLinkActive="active">Courses</button>
+    <button mat-button (click)="logout()">
+      <mat-icon>power_settings_new</mat-icon> Logout
+    </button>
+  </ng-container>
+</mat-toolbar>
+
+
+<div class="main-body">
+
+  <mat-form-field>
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search Course" #input>
+  </mat-form-field>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+
+      <ng-container matColumnDef="courseCode">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Code </th>
+        <td mat-cell *matCellDef="let row"> {{row.courseCode}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+        <td mat-cell *matCellDef="let row"> {{row.title}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let row"> {{row.description}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let row">
+
+          <div class="btns">
+            <button mat-raised-button color="primary" mat-button routerLink="/scheduleStudent">View Schedule</button>
+            <button mat-raised-button color="accent" (click)="enrolCourse(row.courseId)">Enrol</button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+</div>
+
+
+
+

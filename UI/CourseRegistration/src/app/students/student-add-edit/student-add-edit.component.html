@@ -1,0 +1,48 @@
+<div mat-dialog-title>
+    <h1>Student Form</h1>
+</div>
+<form [formGroup]="studentForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>First name</mat-label>
+          <input matInput type="text" placeholder="Ex. Technical" formControlName="firstName">
+          <mat-error *ngIf="studentForm.get('firstName')!.hasError('required')">
+            First name is required!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Last name</mat-label>
+          <input matInput type="text" placeholder="Ex. Technical" formControlName="lastName">
+          <mat-error *ngIf="studentForm.get('lastName')!.hasError('required')">
+            Last name is required!
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="number"  placeholder="Ex. Technical" formControlName="">
+          <mat-error *ngIf="studentForm.get('phoneNo')!.hasError('required')">
+             Enter the phone number!
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Address</mat-label>
+          <input matInput type="text" placeholder="Ex. Technical" formControlName="address">
+          <mat-error *ngIf="studentForm.get('address')!.hasError('required')">
+            Enter the address!
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>

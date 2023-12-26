@@ -10,7 +10,9 @@ namespace CoursRegistration.API.Repository.Interface
         Task<User> RetriveAsync(User user);
         Task<bool> CheckEmailExistAsync(string email);
         Task<string> CheckPasswordStrength(string password);
-        
+        Task UpdateUserAsync(User user);
+        Task<ActionResult<User>> GetUserByIdAsync(Guid userId);
+
 
     }
 }

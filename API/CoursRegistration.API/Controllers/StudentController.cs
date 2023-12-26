@@ -1,8 +1,11 @@
 ﻿using CoursRegistration.API.Models.Domain;
 using CoursRegistration.API.Models.DTO;
+using CoursRegistration.API.Repository.implementation;
 using CoursRegistration.API.Repository.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoursRegistration.API.Controllers
 {
@@ -16,36 +19,30 @@ namespace CoursRegistration.API.Controllers
             this.studentRepository = studentRepository;
         }
 
-
-        [HttpPost]
-        public async Task<IActionResult> CreateStudent(CreateStudentDto request)
+        [HttpGet("getStudent/{id}")]
+        public async Task<IActionResult> GetUserById(Guid userId)
         {
-            var student = new Student
+            var user = await studentRepository.GetUserByIdAsync(userId);
+
+            if (user == null)
             {
-                FirstName = request.FirstName,
-                LastName = request.LastName,
-                EmailId = request.EmailId,
-                Password = request.Password,
-                Address = request.Address,
-                PhoneNo = request.PhoneNo
-            };
-
-            await studentRepository.CreateAsync(student);
-
-            var response = new StudentDto
-            {
-                StudentId = student.StudentId,
-                FirstName = student.FirstName,
-                LastName = student.LastName,
-                EmailId = student.EmailId,
-                Password = student.Password,
-                Address = student.Address,
-                PhoneNo = student.PhoneNo
-            };
-
-            //do not return the domain model directly and map it to with dto
-            return Ok(response);
+                return NotFound();
+            }
+            return Ok(user);
         }
 
+
+        [HttpGet("getStudentbyEmail/{emailId}")]
+        public async Task<IActionResult> GetUserByEmailId(string emailId)
+        {
+            var user = await studentRepository.GetUserByEmailIdAsync(emailId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
+        }
     }
 }

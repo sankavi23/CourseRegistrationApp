@@ -1,0 +1,23 @@
+/*@import '~bootstrap/dist/css/bootstrap.min.css';
+*/
+.about-container h1{
+ text-align: center;
+}
+
+.about-container{
+    margin-top: 20px;
+}
+
+body {
+  background-image: url('../../assets/home.png');
+  background-size: cover; 
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+button.active {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+}

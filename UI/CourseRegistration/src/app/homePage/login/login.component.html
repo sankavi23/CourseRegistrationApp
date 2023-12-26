@@ -1,3 +1,23 @@
+<mat-toolbar color="primary">
+  <span>WISDOM INSTITUE</span>
+  <span class="example-spacer"></span>
+
+  <ng-container>
+    <button mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</button>
+    <button mat-button routerLink="/login">
+      <mat-icon>power_settings_new</mat-icon> Login
+    </button>
+
+    <button mat-button routerLink="/signup">
+      <mat-icon>account_circle</mat-icon> Sign Up
+    </button>
+
+  </ng-container>
+
+</mat-toolbar>
+
+
+
 <div class="outer">
   <div class="container">
     <div class="row">
@@ -33,7 +53,7 @@
             </form>
 
           </div>
-         
+
         </div>
       </div>
     </div>

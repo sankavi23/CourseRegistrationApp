@@ -21,14 +21,13 @@ namespace CoursRegistration.API.Repository.implementation
             await dbContext.SaveChangesAsync();
 
             return user;
-
-
         }
 
         public async Task<User> RetriveAsync(User userObj)
         {
             var user = await dbContext.Users
                      .FirstOrDefaultAsync(x => x.EmailId == userObj.EmailId);
+
             return user;
         }
 
@@ -48,7 +47,18 @@ namespace CoursRegistration.API.Repository.implementation
             string result = sb.ToString();
             return Task.FromResult(result);
         }
-       
+
+        public async Task UpdateUserAsync(User user)
+        {
+            dbContext.Users.Update(user);
+            await dbContext.SaveChangesAsync();
+        }
+
+        public async Task<ActionResult<User>> GetUserByIdAsync(Guid userId)
+        {
+            return await dbContext.Users.FindAsync(userId);
+        }
+
 
     }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormGroupDirective, FormBuilder } from '@angular/forms';
-import { CreateStudent } from '../../student/models/create-student';
-import { StudentService } from '../../student/services/student.service';
+//import { CreateStudent } from '../../student/models/create-student';
+//import { StudentService } from '../../student/services/student.service';
 import { response } from 'express';
 import { Subscription } from 'rxjs';
 import { validateForm } from '../../helpers/validateform';
@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
 
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
-      emailId: ['', Validators.required],
+      emailId: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       address: ['', Validators.required],
       phoneNo: ['', Validators.required]
@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
       this.auth.signUp(this.signUpForm.value)
         .subscribe({
           next: (res) => {
-            alert(res.message)
+            //alert(res.message)
             this.signUpForm.reset();
             this.router.navigate(['login']);
           },

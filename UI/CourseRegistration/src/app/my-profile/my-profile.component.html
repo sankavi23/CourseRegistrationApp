@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <span>WISDOM INSTITUE</span>
+  <span class="example-spacer"></span>
+
+
+  <!-- For Student Dashboard -->
+  <ng-container>
+    <button mat-button routerLink="/myProfile" routerLinkActive="active">
+      <mat-icon>account_circle</mat-icon> My Profile
+    </button>
+    <button mat-button routerLink="/courseStudent" routerLinkActive="active">Courses</button>
+    <button mat-button (click)="logout()">
+      <mat-icon>power_settings_new</mat-icon> Logout
+    </button>
+  </ng-container>
+</mat-toolbar>
+
+
+
+
+
+<div class="main-body">
+  <div>
+    <h1>My Profile</h1>
+  </div>
+  <mat-card>
+    <mat-card-content>
+      <p><strong>First Name: </strong> {{ user.firstName }}</p>
+      <p><strong>Last Name: </strong> {{ user.lastName }}</p>
+      <p><strong>Email:</strong> {{ user.emailId }}</p>
+      <p><strong>Address:</strong> {{ user.address }}</p>
+      <p><strong>Phone Number:</strong> {{ user.phoneNo }}</p>
+    </mat-card-content>
+  </mat-card>
+  <button mat-raised-button class="btn-edit" (click)="openEditForm(user)">EDIT PROFILE</button>
+</div>

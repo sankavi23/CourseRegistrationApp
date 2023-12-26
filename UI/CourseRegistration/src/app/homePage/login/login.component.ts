@@ -31,6 +31,19 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  //onLogin() {
+
+  //  if (this.loginForm.valid) {
+  //    //console.log(loginForm.value)
+  //    this.auth.onLogin(this.loginForm.value);
+
+  //  } else {
+
+  //    validateForm.validateAllFormFields(this.loginForm);
+
+  //  }
+  //}
+
   onLogin() {
     if(this.loginForm.valid) {
       console.log(this.loginForm.value)
@@ -40,21 +53,22 @@ export class LoginComponent implements OnInit {
             
             this.loginForm.reset();
             this.auth.storeToken(res.token);
+            var role = this.auth.getRoleFromToken();
             this.toast.success({ detail: "SUCCESS", summary: res.message, duration: 5000 });
-            this.router.navigate(['adminDashboard'])
+            if (role == 'Admin') {
+              this.router.navigate(['user'])
+            }
+            else {
+              this.router.navigate(['myProfile'])
+            }
           },
           error: (err) => {
             this.toast.error({ detail: "ERROR", summary: "Something went wrong", duration: 5000 });
-            
+            alert("User not Found!")
           }
-
         })
-
-
     } else {
-
       validateForm.validateAllFormFields(this.loginForm);
-
     }
   }
 
